@@ -1,0 +1,4 @@
+# Usado para você dizer ao ESLint que ignore arquivos e diretórios específicos;
+# Ignorar arquivos contidos dentro na pasta node módules, ou seja, não será aplicado
+# regras do esLint da trybe a esse diretório da aplicação pois não faz sentido
+node_modules/

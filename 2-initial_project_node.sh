@@ -1,0 +1,8 @@
+
+
+INICIANDO_PROJETO_NODE(){
+  npm init -y
+}
+
+
+# INICIANDO_PROJETO_NODE
