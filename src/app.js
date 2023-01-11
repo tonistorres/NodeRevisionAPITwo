@@ -1,11 +1,9 @@
-// Importando o Express e iniciou ele em seu programa com a função express()
-// e o colocou na variável app, exportando a variável app para poder usá-la
-// no arquivo server.js.
 const express = require('express');
 const fileWrite = require('./utils/fsUtils');
-// const { removeFile } = require('./utils/copyFile');
+const cors = require("cors");
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 /** Buscando Todos os Membros embutidos no array de objetos */
