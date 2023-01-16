@@ -15,6 +15,15 @@ app.get('/members', async (req, res) => {
   return res.status(200).json(allMembers);
 });
 
+/**Buscando Membro por ID */
+app.get('/members/:id', async (req, res) => {
+  const { id } = req.params;
+  const datas = await fileWrite.readFileJsonAsync();
+  const memBack = datas.find((element) => element.register === Number(id));
+  res.status(200).json(memBack);
+
+});
+
 /** Adicionando um Membro e retornando */
 app.post('/member', async (req, res) => {
   const newMember = { ...req.body };
@@ -39,6 +48,7 @@ app.put('/members/:id', async (req, res) => {
   await fileWrite.writeFileUpadate(datas);
   res.status(200).json(memBack);
 });
+
 
 app.delete('/members/delete/:id', async (req, res) => {
   const { id } = req.params;
