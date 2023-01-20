@@ -1,6 +1,10 @@
 const express = require('express');
 const fileWrite = require('./utils/fsUtils');
 const cors = require("cors");
+const {
+  validationMemberId,
+  validationData,
+} = require('../src/middlewares/validationsMember');
 
 const app = express();
 app.use(cors());
@@ -16,7 +20,7 @@ app.get('/members', async (req, res) => {
 });
 
 /**Buscando Membro por ID */
-app.get('/members/:id', async (req, res) => {
+app.get('/members/:id', validationMemberId, async (req, res) => {
   const { id } = req.params;
   const datas = await fileWrite.readFileJsonAsync();
   const memBack = datas.find((element) => element.register === Number(id));
@@ -25,7 +29,7 @@ app.get('/members/:id', async (req, res) => {
 });
 
 /** Adicionando um Membro e retornando */
-app.post('/member', async (req, res) => {
+app.post('/member', validationData, async (req, res) => {
   const newMember = { ...req.body };
   if (!newMember) {
     res.status(404).json({ message: 'Member Not Found' });
@@ -35,7 +39,7 @@ app.post('/member', async (req, res) => {
 });
 
 /** Editando Membros */
-app.put('/members/:id', async (req, res) => {
+app.put('/members/:id', validationMemberId, validationData, async (req, res) => {
   const { id } = req.params;
   const memFront = req.body;
   const datas = await fileWrite.readFileJsonAsync();
@@ -50,7 +54,7 @@ app.put('/members/:id', async (req, res) => {
 });
 
 
-app.delete('/members/delete/:id', async (req, res) => {
+app.delete('/members/delete/:id', validationMemberId, async (req, res) => {
   const { id } = req.params;
   const datas = await fileWrite.readFileJsonAsync();
   const listFileter = datas.filter((element) => element.register !== Number(id));

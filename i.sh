@@ -8,6 +8,8 @@ source ./7-adding_line_config_package_json.sh # ADICIONANDO_LINHAS_DE_CONFIGURAC
 source ./8-install_nodemon.sh # INSTALANDO_NODENOM
 source ./9-overwrite_key_main_package_json.sh # ADICIONANDO_LINHA_DE_CODIGO_PARA_EXECUCAO_INICIAL
 source ./10-create_index_hello.sh # CRIANDO_ARQUIVO_INDEX_HTML
+source ./11-ESTRUTURA_TEST.sh #CRIANDO_ESTRUTURA_TESTE_MOCHA
+source ./12-install-mocha-chai.sh # INSTALL_MOCHA_CHAI
 
 TIME(){
   echo '---------------'
@@ -62,6 +64,15 @@ EXECUTE(){
   echo '--------------------'
   INSTALANDO_NODENOM
   TIME
+  echo'-----------------------------'
+  echo 'Estrutura de Pastras Testing'
+  echo '----------------------------'
+  CRIANDO_ESTRUTURA_TESTE_MOCHA
+  TIME
+  echo '-----------------------------'
+  echo 'Instalando Mocha e Chai'
+  echo '-----------------------------'
+  INSTALL_MOCHA_CHAI
   echo '---------------------------'
   echo 'adding code project initial'
   echo '---------------------------'
