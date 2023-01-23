@@ -10,6 +10,9 @@ source ./9-overwrite_key_main_package_json.sh # ADICIONANDO_LINHA_DE_CODIGO_PARA
 source ./10-create_index_hello.sh # CRIANDO_ARQUIVO_INDEX_HTML
 source ./11-ESTRUTURA_TEST.sh #CRIANDO_ESTRUTURA_TESTE_MOCHA
 source ./12-install-mocha-chai.sh # INSTALL_MOCHA_CHAI
+source ./13-install-morgan.sh # INSTALL_MORGAN
+source ./14-install-middlewaere-error.sh #INSTALANDO_EXPRESS_MIDDLEWARE_ERROR
+
 
 TIME(){
   echo '---------------'
@@ -63,6 +66,15 @@ EXECUTE(){
   echo 'install nodemon'
   echo '--------------------'
   INSTALANDO_NODENOM
+  TIME
+  echo '--------------------'
+  echo 'instalando morgan'
+  echo '-------------------'
+  INSTALANDO_MORGAN
+  echo '------------------------------'
+  echo 'instalando middleware de error'
+  echo '------------------------------'
+  INSTALANDO_EXPRESS_MIDDLEWARE_ERROR
   TIME
   echo'-----------------------------'
   echo 'Estrutura de Pastras Testing'

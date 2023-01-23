@@ -3,11 +3,11 @@ const validationMemberId = (req, res, next) => {
 
   const idAsNumber = Number(id);
   if (Number.isNaN(idAsNumber)) {
-    res.status(400).send({ message: 'Id inválido!! Precisa ser um Número' })
+    return res.status(400).send({ message: 'Id inválido!! Precisa ser um Número' })
   } else if (!idAsNumber) {
-    res.status(400).send({ message: 'Number not Exist' })
+    return res.status(400).send({ message: 'Number not Exist' })
   } else {
-    next();
+    return next();
   }
 }
 
@@ -17,7 +17,7 @@ const validationData = (req, res, next) => {
     'name', 'baptism', 'birth', 'country',
     'state', 'city', 'district', 'mother', 'dad', 'status'];
   if (requireProperties.every((element) => element in req.body)) {
-    next();
+    return next();
   } else {
     res.status(400).send({
       message:

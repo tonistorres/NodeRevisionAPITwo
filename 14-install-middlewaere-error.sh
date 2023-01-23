@@ -1,0 +1,5 @@
+INSTALANDO_EXPRESS_MIDDLEWARE_ERROR(){
+  npm install express-async-errors@3.1
+}
+
+# INSTALANDO_EXPRESS_MIDDLEWARE_ERROR
